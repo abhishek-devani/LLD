@@ -3,11 +3,9 @@
 The Open/Closed Principle is one of the SOLID principles of object-oriented design, stating that a class should be open for extension but closed for modification.
 
 ### Open for Extension:
-___
 > This part of the principle emphasizes that you should be able to add new functionality or behavior to a module (class, method, etc.) without altering its existing code. In other words, the module should allow for its behavior to be extended or enhanced.
 
 ### Closed for Modification:
----
 > This part of the principle emphasizes that once a module is in use, its source code should not be modified to add new functionality. Instead, you should be able to extend its behavior through some kind of abstraction (like interfaces or abstract classes) without changing the existing code.
 
 
