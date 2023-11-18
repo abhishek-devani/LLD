@@ -1,6 +1,6 @@
-### Single Responsibility Principle (SRP):
+# Single Responsibility Principle (SRP):
 
-This principle states that a class should have only one reason to change, meaning it should have only one responsibility.
+> This principle states that a class should have only one reason to change, meaning it should have only one responsibility.
 
 **Example:**
 Consider a class called `Report` that is responsible for both generating a report and saving it to a file. This violates the SRP because the class has more than one responsibility.

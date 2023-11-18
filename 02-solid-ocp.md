@@ -1,6 +1,15 @@
-### Open/Closed Principle (OCP):
+# Open/Closed Principle (OCP):
 
 The Open/Closed Principle is one of the SOLID principles of object-oriented design, stating that a class should be open for extension but closed for modification.
+
+### Open for Extension:
+---
+> This part of the principle emphasizes that you should be able to add new functionality or behavior to a module (class, method, etc.) without altering its existing code. In other words, the module should allow for its behavior to be extended or enhanced.
+
+### Closed for Modification:
+---
+> This part of the principle emphasizes that once a module is in use, its source code should not be modified to add new functionality. Instead, you should be able to extend its behavior through some kind of abstraction (like interfaces or abstract classes) without changing the existing code.
+
 
 **Example:**
 Consider a drawing application that can draw different shapes (circles, squares, etc.). Initially, you might have a class like this:
@@ -76,4 +85,4 @@ public class Main {
 
 In this example, the `main` function creates an instance of the `Drawing` class and a `Circle` instance. It then calls the `drawShape` method of the `Drawing` class, passing the `Circle` instance as an argument. This demonstrates how you can draw a circle without modifying the existing code, adhering to the Open/Closed Principle.
 
-This way, you can extend the application to support new shapes without modifying existing code, adhering to the Open/Closed Principle.
+> This way, you can extend the application to support new shapes without modifying existing code, adhering to the Open/Closed Principle.
