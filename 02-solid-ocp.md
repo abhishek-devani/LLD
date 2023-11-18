@@ -14,6 +14,7 @@ public class Drawing {
     public void drawSquare() {
         // draw square
     }
+}
 ```
 
 Now, let's say you want to add a new shape, a triangle. Instead of modifying the existing `Drawing` class, you can follow the OCP by introducing an interface or abstract class:
