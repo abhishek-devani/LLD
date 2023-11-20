@@ -146,7 +146,7 @@ Software Licenses
 ---
 ## EC2 - Solutions Architect Associate Level
 
-> ### Elastic IPs
+> ### `Elastic IPs`
 When you start and stop instances, It can change its public IP.
 If you need to have a fixed public IP for your instance, you need an elastic IP.
 An Elastic IP is a public IPv4 IP you own as long as you don’t delete it.
