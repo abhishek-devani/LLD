@@ -5,32 +5,38 @@
 - A Region is a cluster of data centers.
 - Most AWS services are region-scoped.
 
+---
 ## How to choose an AWS Region?
 - `Compliance with data governance and legal requirements:` data never leaves a region without explicit permission.
 - `Proximity to customers:` reduce latency
 - `Availability Services within a region:` new services and new features aren’t available in every region
 - `Pricing:` pricing varies region to region and is transparent in the service pricing page.
 
+---
 ## AWS Availability Zones
 - Each Region has many availability zones (Usually 3, min is 3, max is 6)
 - Each availability zone has one or more discrete data centers with redundant power, networking and connectivity.
 - They are separate from each other so that they are isolated from disasters.
 
+---
 ## MFA device options in AWS
 - Virtual MFA device
 - Universal 2nd Factor (U2F) Security Key: Physical Device
 
+---
 ## How can users access AWS?
 - AWS Management Console (Protected by password)
 - AWS Command Line Interface (AWS CLI): Protected by access keys
 - AWS Software Development Kit (SDK) for code: protected by access keys
 
+---
 ## What’s the AWS SDK?
 - Language specific APIs (set of libraries)
 - Enables you to access and manage AWS Services programmatically.
 - Embedded within your application.
 - Ex. AWS CLI is built on AWS SDK for python named boto.
 
+---
 ## IAM Security Tools
 - IAM Credentials Report (Account Level)
     - A report that lists all your account’s users and their status of the credentials.
@@ -38,6 +44,7 @@
     - Access Adviser shows the service permissions granted to a user and when those services were last accessed.
     - You can use this information to revise your policies.
 
+---
 ## Elastic Compute Cloud (EC2) - Fundamentals
 
 - It mainly consist in the capabilities of
@@ -56,9 +63,7 @@
     - `Firewall Rules:` Security Group
     - `Bootstrap Script:` EC2 User Data
 
----
-### Instance Types
----
+> ### `Instance Types`
 
 #### `General Purpose`
 - Great for diversity of workloads such as web servers or code repositories.
@@ -91,9 +96,7 @@
     - Data warehousing applications
     - Distributed file systems
 
----
-### Security Groups
----
+> ### `Security Groups`
 
 - It is acting as a firewall on EC2 Instance.
 - They Regulate
@@ -107,9 +110,7 @@
     - 443 - HTTPS
     - RDP - (Remote Desktop Protocol)
 
----
-### EC2 Instance Types
----
+> ### `EC2 Instance Types`
 
 #### `On-Demand Instances` 
 - short workload, predictable pricing, pay by second
@@ -147,81 +148,116 @@ Software Licenses
 ## EC2 - Solutions Architect Associate Level
 
 > ### `Elastic IPs`
-When you start and stop instances, It can change its public IP.
-If you need to have a fixed public IP for your instance, you need an elastic IP.
-An Elastic IP is a public IPv4 IP you own as long as you don’t delete it.
-You can attach it to one instance at a time.
-You can have only 5 IP in your account (You can ask AWS to increase that)
-Overall, Try to avoid using Elastic IP:
-They often reflect poor architectural decisions.
-Instead, use a random public IP and register a DNS name to it.
-Placement Groups
-Cluster: Same Hardware, Same AZ, Low latency, great network
-Spread: Different Hardware, limited to 7 instances per AZ per placement group
-Partition: instances distributed across many hardware racks, up to 7 partitions per AZ, same region.
-Elastic Network Interface (ENI)
-Logical component in a VPC that represents a Virtual Network Card.
-The ENI can have the following attributes
-Primary private IPv4, one or more secondary IPv4
-One elastic IP per private IPv4
-One public IPv4
-One or more security groups
-A MAC address
-EC2 Hibernate
-In normal EC2 your application starts, caches get warmed up, and that can take time.
-In EC2 Hibernate
-The in-memory (RAM) state is preserved.
-The Instance boot is much faster. (The OS is not stopped / restarted).
-Under the Hood: the RAM state is written to a file on the root EBS volume.
-An Instance CAN NOT be hibernated more than 60 days.
-Use Cases
-Long Running Processing
-Saving the RAM State
-Services that take time to initialize
-EC2 Instance Storage
-EBS (Elastic Block Storage)
-EBS is a network drive you can attach to your instance while they run.
-It allows your instance to persist your data even after termination.
-It has a multi-attach feature for some EBS. you can attach two EBS to one instance.
-Bound to specific AZ.
-Think of them as a network USB stick.
-To move an EBS volume to another AZs, you first need to snapshot it.
-EBS Snapshot
-Make a backup of your EBS volume at a point in time.
-Can copy snapshots across AZ or Region.
-EBS Snapshot Features
-EBS Snapshot Archive
-Move the snapshot to “achieve tier” which is 75% cheaper.
-Takes within 24 to 72 hrs for restoring the archive.
-Recycle Bin for EBS Snapshots
-Setup rules to retain deleted snapshots so you can recover them after an accidental deletion.
-Specify retention (from 1 day to 1 year).
-Fast Snapshot Retention (FSR)
-Force full initialization of snapshot to have no latency on the 1st use
-AMI (Amazon Machine Image)
-AMI is a customization of an EC2 instance.
-We can add our own software, configuration, OS, monitoring…
-Faster boot/configuration time because all your software is pre-packaged.
-AMI is built for specific regions (and can be copied across regions).
-EC2 Instance Storage
-Used to have better I/O performance.
-It lose their storage if they’re stopped
-Use Case
-Good for buffer / cache / scratch data / temporary content.
-EBS Volume Types
-gp2 / gp3 (SSD): general purpose that balances price and performance.
-io 1 / io 2 (SSD): Highest-performance for mission critical, low latency or high-throughput workloads.
-st 1 (HDD): low cost volume for frequently accessed, throughput-intensive workloads.
-sc 1 (HDD): Lowest cost volume designed for less frequently accessed workloads.
 
-Only gp2 / gp3 and io1 / io2 can be used as boot volumes.
-EBS Multi Attach - io 1 / io 2 family
-Attach the same EBS volume to multiple EC2 instances in the same AZ.
-Max 16 instances can attach to the same EBS.
-Use Cases:
-Higher application availability in clustered Linux applications (Ex. Teradata)
-Applications must manage concurrent write operations.
-EBS Encryption
+- When you start and stop instances, It can change its public IP.
+- If you need to have a fixed public IP for your instance, you need an elastic IP.
+- An Elastic IP is a public IPv4 IP you own as long as you don’t delete it.
+- You can attach it to one instance at a time.
+- You can have only 5 IP in your account (You can ask AWS to increase that)
+- Overall, Try to avoid using Elastic IP:
+    - They often reflect poor architectural decisions.
+    - Instead, use a random public IP and register a DNS name to it.
+
+> ### `Placement Groups`
+
+#### `Cluster` 
+- Same Hardware, Same AZ, Low latency, great network
+
+#### `Spread` 
+- Different Hardware, limited to 7 instances per AZ per placement group
+
+#### `Partition`
+- Instances distributed across many hardware racks, up to 7 partitions per AZ, same region.
+
+> ### `Elastic Network Interface (ENI)`
+- Logical component in a VPC that represents a Virtual Network Card.
+- The ENI can have the following attributes
+    - Primary private IPv4, one or more secondary IPv4
+    - One elastic IP per private IPv4
+    - One public IPv4
+    - One or more security groups
+    - A MAC address
+
+> ### `EC2 Hibernate`
+- In normal EC2 your application starts, caches get warmed up, and that can take time.
+- In EC2 Hibernate
+    - The in-memory (RAM) state is preserved.
+    - The Instance boot is much faster. (The OS is not stopped / restarted).
+    - Under the Hood: the RAM state is written to a file on the root EBS volume.
+- An Instance CAN NOT be hibernated more than 60 days.
+
+> ### `Use Cases`
+
+- Long Running Processing
+- Saving the RAM State
+- Services that take time to initialize
+
+---
+## EC2 Instance Storage
+
+> ### `EBS (Elastic Block Storage)`
+
+- EBS is a `network drive` you can attach to your instance while they run.
+- It allows your instance to `persist your data even after termination`.
+- It has a `multi-attach` feature for some EBS. you can attach two EBS to one instance.
+- `Bound to specific AZ.`
+- Think of them as a `network USB stick`.
+- `To move` an EBS volume `to another AZs`, you first need to `snapshot it`.
+
+> ### `EBS Snapshot`
+
+- `Make a backup` of your EBS volume at a point in time.
+- `Can copy snapshots across AZ or Region.`
+ 
+#### `EBS Snapshot Features`
+
+- EBS Snapshot Archive
+    - Move the snapshot to `achieve tier` which is `75% cheaper`.
+    - Takes within `24 to 72 hrs` for `restoring the archive`.
+- Recycle Bin for EBS Snapshots
+    - Setup rules to retain deleted snapshots so you can recover them after an accidental deletion.
+    - Specify retention (from 1 day to 1 year).
+- Fast Snapshot Retention (FSR)
+    - Force full initialization of snapshot to have no latency on the 1st use.
+
+> ### `AMI (Amazon Machine Image)`
+- AMI is a `customization of an EC2 instance`.
+    - We can add our own software, configuration, OS, monitoring…
+    - Faster boot/configuration time because all your software is pre-packaged.
+- AMI is `built for specific regions` (and `can be copied across regions`).
+
+> ### `EC2 Instance Storage`
+- Used to have better I/O performance.
+- It lose their storage if they’re stopped
+- `Use Case`
+    - Good for buffer / cache / scratch data / temporary content.
+
+> ### `EBS Volume Types`
+
+#### gp2 / gp3 (SSD)
+- general purpose that balances price and performance.
+
+#### io 1 / io 2 (SSD)
+- Highest-performance for mission critical, low latency or high-throughput workloads.
+
+#### st 1 (HDD)
+- low cost volume for frequently accessed, throughput-intensive workloads.
+
+#### sc 1 (HDD)
+- Lowest cost volume designed for less frequently accessed workloads.
+
+> Note: Only gp2 / gp3 and io1 / io2 can be used as boot volumes.
+
+> ### `EBS Multi Attach - io 1 / io 2 family`
+
+- Attach the same EBS volume to multiple EC2 instances in the same AZ.
+- `Max 16 instances can attach` to the `same EBS`.
+- `Use Cases:`
+    - Higher application availability in clustered Linux applications (Ex. Teradata)
+    - Applications must manage concurrent write operations.
+
+> ### `EBS Encryption`
+
 Encryption has a minimal impact on latency
 Encrypt an unencrypted EBS Volume
 Create an EBS snapshot of the volume.
