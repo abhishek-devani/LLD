@@ -56,7 +56,9 @@
     - `Firewall Rules:` Security Group
     - `Bootstrap Script:` EC2 User Data
 
+---
 ### Instance Types
+---
 
 #### `General Purpose`
 - Great for diversity of workloads such as web servers or code repositories.
@@ -81,26 +83,32 @@
     - application is performing real time processing of big unstructured data.
 
 #### `Storage Optimized`
-It’s for tasks that requires high, sequential read and write access to large data sets on local storage
-Use cases:
-OLTP (Online transaction processing) systems
-Relations & NoSQL Databases
-Cache for in memory-databases (Ex. Redis)
-Data warehousing applications
-Distributed file systems
-Security Groups
-It is acting as a firewall on EC2 Instance.
-They Regulate
-Access to the ports
-Control of inbound and outbound network
-Ports to know
-22 = SSH 
-21 - FTP
-22 - SFTP
-80 - HTTP
-443 - HTTPS
-RDP - (Remote Desktop Protocol)
-EC2 Instance Types
+- It’s for tasks that requires high, sequential read and write access to large data sets on local storage
+- Use cases:
+    - OLTP (Online transaction processing) systems
+    - Relations & NoSQL Databases
+    - Cache for in memory-databases (Ex. Redis)
+    - Data warehousing applications
+    - Distributed file systems
+
+---
+### Security Groups
+---
+
+- It is acting as a firewall on EC2 Instance.
+- They Regulate
+    - Access to the ports
+    - Control of inbound and outbound network
+- Ports to know
+    - 22 = SSH 
+    - 21 - FTP
+    - 22 - SFTP
+    - 80 - HTTP
+    - 443 - HTTPS
+    - RDP - (Remote Desktop Protocol)
+
+#### `EC2 Instance Types`
+
 On-Demand Instances: short workload, predictable pricing, pay by second
 Reserved (1 & 3 Years)
 Reserved Instances: long workloads
