@@ -232,7 +232,7 @@ Software Licenses
 - `Use Case`
     - Good for buffer / cache / scratch data / temporary content.
 
-> ### `EBS Volume Types`
+> ### **`EBS Volume Types`**
 
 #### gp2 / gp3 (SSD)
 - general purpose that balances price and performance.
