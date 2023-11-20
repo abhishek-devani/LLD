@@ -107,25 +107,46 @@
     - 443 - HTTPS
     - RDP - (Remote Desktop Protocol)
 
-#### `EC2 Instance Types`
+---
+### EC2 Instance Types
+---
 
-On-Demand Instances: short workload, predictable pricing, pay by second
-Reserved (1 & 3 Years)
-Reserved Instances: long workloads
-Convertible Reserved Instances: long workloads with flexible instance (you can change the type of the instance)
-Savings Plan (1 & 3 Years): commitment to an amount of usage, long workload
-Spot Instances: short workloads, cheap, can lose instances (less reliable)
-Batch Jobs
-Data analysis
-Image processing
-Any distributed workloads
-Workloads with a flexible start and end time
-Dedicated Host: book an entire physical server, control instance placement
+#### `On-Demand Instances` 
+- short workload, predictable pricing, pay by second
+
+#### `Reserved (1 & 3 Years)`
+- `Reserved Instances:` long workloads
+- `Convertible Reserved Instances:` long workloads with flexible instance (you can change the type of the instance)
+
+#### `Savings Plan (1 & 3 Years)`
+- commitment to an amount of usage, long workload
+
+#### `Spot Instances` 
+- short workloads, cheap, can lose instances (less reliable)
+- Use Cases
+    - Batch Jobs
+    - Data analysis
+    - Image processing
+    - Any distributed workloads
+    - Workloads with a flexible start and end time
+
+#### `Dedicated Host` 
+- book an entire physical server, control instance placement
 Software Licenses
-Dedicated Instances: no other customer will share your hardware but may share hardware with other instances in same account
-Capacity Reservation: reserve capacity in a specific AZ for any duration
-Spot Fleets = Set of Spot Instances + (Optional) On-Demand Instances
-Elastic IPs
+
+#### `Dedicated Instances` 
+- no other customer will share your hardware but may share hardware with other instances in same account
+
+#### `Capacity Reservation` 
+- reserve capacity in a specific AZ for any duration
+
+#### `Spot Fleets` 
+- Set of Spot Instances + (Optional) On-Demand Instances
+
+---
+## EC2 - Solutions Architect Associate Level
+
+### Elastic IPs
 When you start and stop instances, It can change its public IP.
 If you need to have a fixed public IP for your instance, you need an elastic IP.
 An Elastic IP is a public IPv4 IP you own as long as you don’t delete it.
