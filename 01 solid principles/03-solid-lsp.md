@@ -7,12 +7,14 @@
 Consider a scenario where you have a class hierarchy representing different shapes:
 
 ```java
+// Shape class
 class Shape {
     int area() {
         return 0;
     }
 }
 
+// Rectangle class
 class Rectangle extends Shape {
     int width;
     int height;
@@ -23,6 +25,7 @@ class Rectangle extends Shape {
     }
 }
 
+// Square class
 class Square extends Shape {
     int side;
 
@@ -36,14 +39,12 @@ class Square extends Shape {
 According to Liskov's Substitution Principle, you should be able to use any subclass (`Rectangle` or `Square`) wherever a parent class (`Shape`) is expected without causing issues. For example:
 
 ```java
+// printArea class
 void printArea(Shape shape) {
     System.out.println("Area: " + shape.area());
 }
-```
 
-Main Class
-
-```java
+// Main Class
 public static void main(String[] args) {
     
     Rectangle rectangle = new Rectangle();

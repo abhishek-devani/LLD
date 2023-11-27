@@ -1,12 +1,14 @@
 # Single Responsibility Principle (SRP):
 
-> This principle states that a class should have only one reason to change, meaning it should have only one responsibility.
+This principle states that a class should have only one reason to change, meaning it should have only one responsibility.
 
 **Example:**
 Consider a class called `Report` that is responsible for both generating a report and saving it to a file. This violates the SRP because the class has more than one responsibility.
 
 ```java
+// Report class
 public class Report {
+
     public void generateReport() {
         // Generate the report
     }
@@ -20,13 +22,18 @@ public class Report {
 A better design adhering to SRP would be to separate these responsibilities into two classes:
 
 ```java
+// ReportGenerator class
 public class ReportGenerator {
+
     public void generateReport() {
         // Generate the report
     }
 }
 
+
+// ReportSaver class
 public class ReportSaver {
+
     public void saveToFile() {
         // Save the report to a file
     }

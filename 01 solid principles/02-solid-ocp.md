@@ -13,7 +13,9 @@ The Open/Closed Principle is one of the SOLID principles of object-oriented desi
 Consider a drawing application that can draw different shapes (circles, squares, etc.). Initially, you might have a class like this:
 
 ```java
+// Drawing class
 public class Drawing {
+
     public void drawCircle() {
         // draw circle
     }
@@ -27,6 +29,7 @@ public class Drawing {
 Now, let's say you want to add a new shape, a triangle. Instead of modifying the existing `Drawing` class, you can follow the OCP by introducing an interface or abstract class:
 
 ```java
+// Shape interface
 public interface Shape {
     void draw();
 }
@@ -35,18 +38,21 @@ public interface Shape {
 Then, you can create specific shape classes that implement this interface:
 
 ```java
+// Circle class
 public class Circle implements Shape {
     public void draw() {
         // draw circle
     }
 }
 
+// Square class
 public class Square implements Shape {
     public void draw() {
         // draw square
     }
 }
 
+// Triangle class
 public class Triangle implements Shape {
     public void draw() {
         // draw triangle
@@ -57,7 +63,9 @@ public class Triangle implements Shape {
 Now, the `Drawing` class can work with any shape that implements the `Shape` interface without modifying its code:
 
 ```java
+// Drawing class
 public class Drawing {
+
     public void drawShape(Shape shape) {
         shape.draw();
     }
@@ -67,8 +75,10 @@ public class Drawing {
 Certainly! To draw a circle using the classes and interfaces mentioned earlier, you can do the following in the `main` function:
 
 ```java
+// Main class
 public class Main {
     public static void main(String[] args) {
+
         // Create a Drawing instance
         Drawing drawing = new Drawing();
 
