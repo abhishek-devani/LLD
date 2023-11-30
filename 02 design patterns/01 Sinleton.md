@@ -75,4 +75,4 @@ if (instance == null) {
 ---
 ## Code
 
-- [https://github.com/abhishek-devani/java-concepts/tree/main/src/designPatterns/sinleton] Singleton Design Pattern
+- [Singleton Design Pattern] (https://github.com/abhishek-devani/java-concepts/tree/main/src/designPatterns/sinleton)
