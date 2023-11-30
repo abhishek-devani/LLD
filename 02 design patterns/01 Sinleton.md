@@ -1,11 +1,5 @@
 # 01 Singleton Design Pattern
 
-<!-- Def
-Problem Statement (Why?)
-How to Implement (How?)
-Pros
-Cons -->
-
 ## Definition
 
 - It allows you to create a class for which only one object can be created.
@@ -77,3 +71,8 @@ if (instance == null) {
 ## Cons
 
 1. Difficulty in testing a singleton class (because we need to create mock object to test and we cannot create more than one object).
+
+---
+## Code
+
+- [https://github.com/abhishek-devani/java-concepts/tree/main/src/designPatterns/sinleton] Singleton Design Pattern
