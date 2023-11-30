@@ -66,3 +66,14 @@ if (instance == null) {
 
 }
 ```
+
+---
+## Pros
+
+1. Resource Efficiency
+2. Creating a new object is inefficient
+
+---
+## Cons
+
+1. Difficulty in testing a singleton class (because we need to create mock object to test and we cannot create more than one object).
